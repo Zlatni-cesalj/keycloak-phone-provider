@@ -147,6 +147,7 @@
                                aria-invalid="<#if messagesPerField.existsError('phoneNumber')>true</#if>"
                                autofocus
                                value="${(register.formData.phoneNumber!'')}"
+                               placeholder="+385 91 234 5678"
                                autocomplete="mobile tel"/>
                         <#if messagesPerField.existsError('phoneNumber')>
                             <span id="input-error-password" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">

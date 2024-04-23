@@ -13,7 +13,8 @@ services:
       - MYSQL_PASSWORD=k@ycl0ck
 
   keycloak:
-    image: coopersoft/keycloak:21.0.1_phone-2.2.2
+    image: dpranjic/keycloak:21.0.2_phone-2.3.4-snapshot
+    container_name: keycloak-test
     #    restart: always
     ports:
       - 8765:8080
