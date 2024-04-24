@@ -34,14 +34,66 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
+    <style>
+    .login-pf body {
+  background: #323232;
+  background-size: cover;
+  height: 100%;
+  color: #f5f5f5;
+}
+.login-pf body a {
+  color: #d9c69e;
+}
+
+.pf-c-button {
+  height: 50px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.pf-c-button.pf-m-primary {
+  background-color: #d9c69e;
+  color: #323232;
+}
+
+.pf-c-button.pf-m-primary:disabled {
+  background-color: grey;
+  color: #f5f5f5;
+}
+
+.form-group {
+  color: #f5f5f5;
+}
+
+.card-pf {
+  background-color: #2c2b29;
+  border-color: #d9c69e;
+}
+
+.pf-c-form-control {
+  border-radius: 15px;
+  border-bottom: transparent;
+}
+
+#kc-info-wrapper{
+    background-color: transparent;
+    
+}
+
+#kc-registration span{
+    color: #f5f5f5;
+}
+
+    </style>
 </head>
 
 <body class="${properties.kcBodyClass!}">
-<div>main banana</div>
 <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
         <div id="kc-header-wrapper"
-             class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
+             class="${properties.kcHeaderWrapperClass!}">
+             Zlatni češalj
+             </div>
     </div>
     <div class="${properties.kcFormCardClass!}">
         <header class="${properties.kcFormHeaderClass!}">
