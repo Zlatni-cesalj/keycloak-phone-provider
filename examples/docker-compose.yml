@@ -19,13 +19,13 @@ services:
     ports:
       - 8765:8080
     command:
-      - start-dev --spi-phone-default-service=dummy --import-realm
+      - start-dev --spi-phone-default-service=barbershop --import-realm
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
       KC_HEALTH_ENABLED: true
       #KC_PROXY: edge
-      DB_VENDOR: mariadb
+      DB_VENDOR: localhost
       DB_ADDR: database
       DB_DATABASE: keycloak
       DB_USER: keycloak

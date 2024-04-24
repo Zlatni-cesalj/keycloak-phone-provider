@@ -12,7 +12,7 @@ public class BarbershopSenderServiceProviderFactory implements MessageSenderServ
 
     @Override
     public MessageSenderService create(KeycloakSession keycloakSession) {
-        return new BarbershopSenderService(keycloakSession.getContext().getRealm().getDisplayName(), config);
+        return new BarbershopSenderService(keycloakSession, config);
     }
 
     @Override
