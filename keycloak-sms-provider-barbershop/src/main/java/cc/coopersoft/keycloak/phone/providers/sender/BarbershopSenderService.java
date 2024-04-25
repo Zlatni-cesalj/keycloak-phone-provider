@@ -44,7 +44,7 @@ public class BarbershopSenderService extends FullSmsSenderAbstractService {
 
             if (res.getStatus() == 200) {
                 logger.debug(
-                        String.format("Sent phone verification code via https with message id %s", res.asJson()));
+                        String.format("Sent phone verification code via https with message id %s", res.asString()));
             } else {
                 logger.warn("Failed to send SMS. Status code: " + res.getStatus());
             }
