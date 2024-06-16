@@ -1,6 +1,7 @@
 package cc.coopersoft.keycloak.phone.providers.sender;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -31,12 +32,16 @@ public class BarbershopSenderService extends FullSmsSenderAbstractService {
 
         try {
             logger.info(String.format("To: %s >>> %s", phoneNumber, message));
+            HashMap<String, Object> obj = new HashMap<String, Object>();
+            obj.put("phone", phoneNumber);
+            obj.put("message", message);
             
             
 
         try {
             HttpClient httpclient = HttpClients.createDefault();
-            SimpleHttp req = SimpleHttp.doGet("http://host.docker.internal:4000", httpclient).acceptJson();
+            SimpleHttp req = SimpleHttp.doPost("http://host.docker.internal:4001/send-otp-code", httpclient);
+            req.json(obj);
             SimpleHttp.Response res = req.asResponse();
 
             System.out.println(req);
@@ -44,7 +49,7 @@ public class BarbershopSenderService extends FullSmsSenderAbstractService {
 
             if (res.getStatus() == 200) {
                 logger.debug(
-                        String.format("Sent phone verification code via https with message id %s", res.asString()));
+                        String.format("Sent phone verification code via https with message id %s", res.asJson()));
             } else {
                 logger.warn("Failed to send SMS. Status code: " + res.getStatus());
             }
