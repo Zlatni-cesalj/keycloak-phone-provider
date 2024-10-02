@@ -31,6 +31,7 @@ services:
       DB_USER: keycloak
       DB_PASSWORD: k@ycl0ck
       DB_PORT: 3306
+      REQUEST_PRIVATE_KEY: -----BEGIN RSA PRIVATE KEY-----\nMIICXQIBAAKBgQC51WXCxXuxz3FSrgf123WpDvwAyhuLZKbtEiYBoEFSnt0UaM2G\nDEBnoZCqDwIux9fWiEzrb13u/dtheaGT7zLka6kswfqYeM/o/TBixNi2PXE7W5Vs\n6qtztflqecRGbxL6Hypu5I2382gxcARjO5WS+qXIgATm4Bsm8kBUXsLxHwIDAQAB\nAoGBAJK7N71htzh/xkf1WB29qhrR1RM+gh8/WzqHgPD5u3pkK8Yotlcop1XsUVCl\nxyBu9TLUrn+bkLzbPvSpWHZ5gWFVRMcOBNogMwb9eniuMEII0MSbuW1zEpthwpy4\nOZaizjTXOmFPC9y3y4iJ6WzlrXeUYCHNsp2C1x6TCM8qL/V5AkEA+VgP+KubFnTT\nCNCrS2z+uiBDkBhR0nn4mJdDx7Y+ezWtTTmcgXd2GAkGaOkJX9bojGlAQPcUL9RE\nZoiRTkfO1QJBAL7LUz2YvbqgghT1XfommWJsdkvCFUJkZQsyndkuJgyQ+3E7mGT9\noauFjmimYG18Zb7FwVogrjTA3+Sx/2AEAiMCQBj3SlIZzKOI+wBs9FnPBgpY5Kru\n5HJwqAWPT8gVZVgs3bdXx2XnMjnh3XRvsPKZsBsvBrH6i1jmphqmHfZ6likCQQCX\n9JAjatcRIGz6DEIAzWU0QnYk+Dq+Wf8v3+xf4KVlNMNN98z0Ah0U4pX9OyVpjb3r\nJs1L3uNgGI05M5rU+dxJAkBUGptyBO3Qzw5LZhzO8Y0x/p3V/mQ+RABoqfu3m53l\nQMqeZpQBaTDCjdrmjrMuLfYqDi5ViKpMAF2w0bxthMPj\n-----END RSA PRIVATE KEY-----
     links:
       - database:database
     depends_on:

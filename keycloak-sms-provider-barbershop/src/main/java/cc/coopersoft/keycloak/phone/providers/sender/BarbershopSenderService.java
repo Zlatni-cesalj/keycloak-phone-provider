@@ -40,7 +40,8 @@ public class BarbershopSenderService extends FullSmsSenderAbstractService {
 
         try {
             HttpClient httpclient = HttpClients.createDefault();
-            SimpleHttp req = SimpleHttp.doPost("http://host.docker.internal:4001/send-otp-code", httpclient);
+            SimpleHttp req = SimpleHttp.doPost("http://host.docker.internal:4001/send-otp-code", httpclient)
+            .header("authorization", System.getenv("REQUEST_PRIVATE_KEY"));
             req.json(obj);
             SimpleHttp.Response res = req.asResponse();
 

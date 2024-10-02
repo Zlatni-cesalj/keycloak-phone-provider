@@ -31,14 +31,16 @@ public class UserRegistrationEventListenerProvider implements EventListenerProvi
             UserModel user = keycloakSession.users().getUserById(realm, event.getUserId());
 
             String phoneNumber = user.getUsername();
+            String id = user.getId();
             HashMap<String, Object> body = new HashMap<String, Object>();
+            body.put("keycloakId", id);
             body.put("phone", phoneNumber);
 
             log.info("registering user with phone number: " + phoneNumber);
             log.info("private key is: " + System.getenv("REQUEST_PRIVATE_KEY"));
 
             HttpClient httpclient = HttpClients.createDefault();
-            SimpleHttp.doPost("http://host.docker.internal:4001/user/registration", httpclient)
+            SimpleHttp.doPost("http://host.docker.internal:4001/client/registered", httpclient)
             .header("authorization", System.getenv("REQUEST_PRIVATE_KEY"))
             .json(body);
        
