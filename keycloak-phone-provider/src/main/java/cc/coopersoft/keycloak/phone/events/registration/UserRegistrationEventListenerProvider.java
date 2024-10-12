@@ -39,10 +39,26 @@ public class UserRegistrationEventListenerProvider implements EventListenerProvi
             log.info("registering user with phone number: " + phoneNumber);
             log.info("private key is: " + System.getenv("REQUEST_PRIVATE_KEY"));
 
-            HttpClient httpclient = HttpClients.createDefault();
-            SimpleHttp.doPost("http://host.docker.internal:4001/client/registered", httpclient)
-            .header("authorization", System.getenv("REQUEST_PRIVATE_KEY"))
-            .json(body);
+            try {
+                HttpClient httpclient = HttpClients.createDefault();
+                SimpleHttp req = SimpleHttp.doPost("http://host.docker.internal:4001/client/registered", httpclient)
+                .header("authorization", System.getenv("REQUEST_PRIVATE_KEY"));
+                req.json(body);
+                SimpleHttp.Response res = req.asResponse();
+    
+                System.out.println(req);
+    
+    
+                if (res.getStatus() == 200) {
+                    log.debug(
+                            String.format("Sent phone registration details via https with message id %s", res.asJson()));
+                } else {
+                    log.warn("Failed to handle user registration. Status code: " + res.getStatus());
+                }
+             } catch (Exception ex) {
+                String msg = "Could not send message via localh https server";
+                log.error(msg, ex);
+            }
        
         }
     }

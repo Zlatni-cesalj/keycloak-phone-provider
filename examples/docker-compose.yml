@@ -15,7 +15,7 @@ services:
   keycloak:
     image: dpranjic/keycloak:21.0.2_phone-2.3.4-snapshot
     container_name: keycloak-test
-    #    restart: always
+    restart: always
     ports:
       - 8765:8080
     command:

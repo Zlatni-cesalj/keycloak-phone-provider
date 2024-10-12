@@ -26,8 +26,6 @@ public class BarbershopSenderService extends FullSmsSenderAbstractService {
 
     @Override
     public void sendMessage(String phoneNumber, String message) throws MessageSendException {
-        String token = config.get("token");
-
         logger.debug("Sending phone verification code via https");
 
         try {
